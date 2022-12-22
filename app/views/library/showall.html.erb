@@ -1,2 +1,12 @@
 <h1>Library#showall</h1>
-<p>Find me in app/views/library/showall.html.erb</p>
+<div>
+<% Book.all.each do |book| %>
+  <div>
+    Название: <%= book.name %> </br>
+    Автор: <%=  book.author %> </br>
+    Жанр: <%=  book.genre %> </br>
+  <% end %> 
+  </div>
+  </br>
+  </br>
+</div>
