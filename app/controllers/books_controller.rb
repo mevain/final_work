@@ -1,9 +1,11 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: %i[ show edit update destroy ]
+  before_action :set_book, only: %i[ show edit update destroy ], except: [:index]
 
   # GET /books or /books.json
   def index
-    @books = Book.all
+    #@books = Book.all
+    @q = Book.ransack(params[:q])
+    @books = @q.result(distinct:true)
   end
 
   # GET /books/1 or /books/1.json

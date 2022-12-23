@@ -45,7 +45,8 @@ gem 'devise'
 gem 'faker'
 gem 'i18n', '~>1.12.0'
 gem "image_processing", ">= 1.2"
-
+gem 'bootstrap', '~> 5.2'
+  gem 'ransack'
 # Use Sass to process CSS
 # gem "sassc-rails"
 

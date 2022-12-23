@@ -1,12 +1,2 @@
 <h1>Library#showall</h1>
-<div>
-<% Book.all.each do |book| %>
-  <div>
-    Название: <%= book.name %> </br>
-    Автор: <%=  book.author %> </br>
-    Жанр: <%=  book.genre %> </br>
-  <% end %> 
-  </div>
-  </br>
-  </br>
-</div>
+<%= button_to 'К публикациям', books_path, method: :get, class: 'btn btn-primary' %>
