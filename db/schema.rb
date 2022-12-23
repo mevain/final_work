@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_23_184138) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_23_191738) do
+  create_table "books", force: :cascade do |t|
+    t.string "genre"
+    t.string "name"
+    t.string "author"
+    t.integer "year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "description"
+    t.string "content"
+    t.string "language"
+    t.string "author_email"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
