@@ -5,18 +5,34 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <h1 class = "sitename">library</h1>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-  <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-       <% if current_user %>
-      Welcome, <%= current_user.name %>
-      <%= button_to 'Выйти', destroy_user_session_path, method: :delete, data: { turbo: false } %>
-    <% end %>
+  <%if notice or alert%>
+  <p class="notice", align = "center"><%= notice %></p>
+  <p class="alert", align = "center"><%= alert %></p>
+  <%end %>
+  <% if current_user %>
+  <nav class="navbar navbar-expand-lg my-primary fixed-bottom">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+        <%if not current_page?(root_path)%>
+          <li class="nav-item active">
+            <a class="nav-link" href=<%= root_path %>>Мой профиль</a>
+          </li>
+        <%end%>
+          <li class="nav-item active">
+          <%= button_to "Выйти", destroy_user_session_path, method: :delete, class:"btn btn-outline-light", data: { turbo: false } %>
+          </li>
+        </ul>
+      </div>
+  </div>
+</nav>
+<%end%>
     <%= yield %>
   </body>
 </html>

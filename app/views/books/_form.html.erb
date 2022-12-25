@@ -22,14 +22,35 @@
   </div>
 
   <div>
+  <%= form.label :language, style: "display: block" %>
+  <%= form.text_field :language%>
+</div>
+
+  <div>
     <%= form.label :author, style: "display: block" %>
-    <%= form.text_field :author %>
+    <%= form.text_field :author%>
   </div>
 
   <div>
-    <%= form.label :year, style: "display: block" %>
-    <%= form.number_field :year %>
+    <%= form.label :author_email, style: "display: block" %>
+    <%= form.text_field :author_email%>
   </div>
+
+
+  <div>
+    <%= form.label :year, style: "display: block" %>
+    <%= form.number_field :year%>
+  </div>
+
+  <div>
+  <%= form.label :description, style: "display: block" %>
+  <%= form.text_area :description, cols: 100, rows: 10%>
+</div>
+
+<div>
+<%= form.label :content, style: "display: block" %>
+<%= form.text_area :content, cols: 100, rows: 100%>
+</div>
 
   <div>
     <%= form.submit %>

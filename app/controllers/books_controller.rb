@@ -1,6 +1,5 @@
 class BooksController < ApplicationController
   before_action :set_book, only: %i[ show edit update destroy ], except: [:index]
-
   # GET /books or /books.json
   def index
     #@books = Book.all
@@ -67,6 +66,6 @@ class BooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def book_params
-      params.require(:book).permit(:genre, :name, :author, :year, :language, :description, :content, :author_email)
+      params.require(:book).permit(:genre, :name, :author, :language, :description, :content, :year, :author_email)
     end
 end

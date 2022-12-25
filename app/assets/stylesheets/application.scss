@@ -1,3 +1,50 @@
+@import "bootstrap";
+
+.container
+{
+    padding: 10px;
+}
+
+.login {
+    text-align: center;
+}
+.sitename
+{
+    vertical-align: middle;
+    margin: 10px;
+    text-align: center;
+    color: rgb(24, 80, 185);
+}
+
+.booklist 
+{
+    padding-top: 5px;
+    margin: auto;
+    tr, td
+    {
+        text-align: center;
+        padding: 10px;
+    };
+
+    th 
+    {
+        text-align: center;
+    };
+}
+
+.exit_button
+{
+    padding: 5px;
+}
+
+.my-primary {
+    background-color:rgb(24, 80, 185);
+    color: white;
+    .nav-link
+    {
+        color: white;
+    }
+    }
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.

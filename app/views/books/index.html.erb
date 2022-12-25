@@ -1,23 +1,35 @@
-<div>
-<%= search_form_for @q do |f| %>
-  <%= label_tag ("Название содержит:") %>
-  <%= f.text_field :name_cont, class: 'form-control' %> </br>
-  <%= label_tag ("Год публикации от:") %>
-  <%= f.search_field :year_gteq, class: 'form-control' %>
-  <%= label_tag ("до:") %>
-  <%= f.search_field :year_lteq, class: 'form-control' %> </br>
-  <%= label_tag ("Жанр:") %> 
-  <%= f.search_field :genre_eq, class: 'form-control' %> </br>
-  <%= label_tag ("Автор:") %> 
-  <%= f.search_field :author_cont, class: 'form-control' %> </br>
-  <%= label_tag ("Язык:") %> 
-  <%= f.search_field :language_eq, class: 'form-control' %> </br>
-  <%= link_to "Очистить", request.path, class: "btn btn-default" %> </br>
-  <%= f.submit class: 'btn btn-primary' %>
-  <% end %>
+<div class = "container">
+  <div class = 'row'>
+      <div class = 'col-6'>
+        <%= search_form_for @q do |f| %>
+        <%= label_tag ("Название содержит:") %>
+        <%= f.text_field :name_cont, class: 'form-control' %> </br>
+        <%= label_tag ("Год публикации от:") %>
+        <%= f.search_field :year_gteq, class: 'form-control' %> </br>
+        <%= label_tag ("до:") %>
+        <%= f.search_field :year_lteq, class: 'form-control' %> </br>
+      </div>
 
-
-<table>
+      <div class = "col-6"
+        <%= label_tag ("Жанр:") %> 
+        <%= f.search_field :genre_eq, class: 'form-control' %> </br>
+        <%= label_tag ("Автор:") %> 
+        <%= f.search_field :author_cont, class: 'form-control' %> </br>
+        <%= label_tag ("Язык:") %> 
+        <%= f.search_field :language_eq, class: 'form-control' %> </br>
+      </div>
+  </div>
+  <div class = 'row'>
+  <div class = 'col-6', align = "center" >
+  <%= f.submit class: 'btn btn-primary', style: 'width: 100px, margin: auto'%>
+</div>
+      <div class = 'col-6', align = "center">
+        <%= link_to "Очистить", request.path, class: "btn btn-default", style: "border: 2px solid #0d6efd"%> </br>
+      </div>
+      <% end %>
+  </div>
+</div>
+<table class = "booklist">
   <thead>
     <tr>
       <th><%= sort_link(@q, :name, "Название", default_order: :asc) %></th>
@@ -25,9 +37,7 @@
       <th><%= sort_link(@q, :year, "Год", default_order: :asc) %></th>
       <th><%= sort_link(@q, :genre, "Жанр", default_order: :asc) %></th>
       <th><%= sort_link(@q, :language, "Язык", default_order: :asc) %></th>
-      <th><%= sort_link(@q, :description, "Описание", default_order: :asc) %></th>
       <th><%= sort_link(@q, :description, "Email", default_order: :asc) %></th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -39,7 +49,6 @@
         <td><%= book.year %></td>
         <td><%= book.genre %></td>
         <td><%= book.language %></td>
-        <td><%= book.description %></td>
         <td><%= book.author_email %></td>
         <td><%= link_to 'Show', book %></td>
       </tr>

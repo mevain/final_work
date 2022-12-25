@@ -6,11 +6,15 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 Faker::Config.locale = :ru
-50.times do
+100000.times do
+    @emails = ["new@new.com", "mevain@example.org", "user1@example.org", "user2@example.org", "user3@example.org", "user4@example.org", 
+    "user5@example.org" ]
+    @names = ["new", "mevain", "user1", "user2", "user3", "user4", "user5"]
     @genres = ["Роман", "Поэзия", "Фэнтези", "Детектив", "Триллер", "Биография", "Комикс", "Пьеса", "Рассказ", "Для детей", "Романтика"]
-    @name = Faker::Commerce.product_name
-    @author = Faker::Book.author
-    @author_email = Faker::Lorem.word + '@example.com'
+    @id = rand(1...7)
+    @name = Faker::Book.name
+    @author = @names[@id - 1]
+    @author_email = @emails[@id - 1];
     @year = rand(2010..2022)
     @genre = @genres.sample
     @description = "Автор еще не добавил описание"
@@ -19,5 +23,5 @@ Faker::Config.locale = :ru
         @content.concat(Faker::Lorem.paragraph)
     end
     @language = 'English'
-    Book.create(genre: @genre, name: @name, author: @author, year: @year, description: @description, content: @content, language: @language, author_email: @author_email)
+    Book.create(genre: @genre, name: @name, author: @author, year: @year, description: @description, content: @content, language: @language, author_email: @author_email, user_id: @id)
 end
