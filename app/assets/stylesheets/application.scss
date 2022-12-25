@@ -1,5 +1,9 @@
 @import "bootstrap";
 
+body 
+{
+    padding-bottom: 80px;
+}
 .container
 {
     padding: 10px;
@@ -16,19 +20,35 @@
     color: rgb(24, 80, 185);
 }
 
+h1, h2, h3
+{
+    vertical-align: middle;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
 .booklist 
 {
     padding-top: 5px;
     margin: auto;
-    tr, td
+    align-items:center;
+    td
     {
         text-align: center;
-        padding: 10px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 10px;
+        padding-bottom: 10px;
     };
 
     th 
     {
         text-align: center;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 10px;
+        padding-bottom: 5px;
     };
 }
 
@@ -45,6 +65,10 @@
         color: white;
     }
     }
+.edit_create
+{
+    text-align: center;
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.

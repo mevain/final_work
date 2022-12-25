@@ -1,13 +1,18 @@
 <h1 align = "center" ><%=current_user.name%></h1>
 <p align = "center" > <%=current_user.email%> <p>
 <div class = "container", align = "center">
-<div class = "row">
-<div class = "col-4">
-<%= button_to 'К публикациям', books_path, method: :get, class: 'btn btn-primary' %>
-</div>
-<div class = "col-4">
-<%= button_to 'Создать публикацию', new_book_path, method: :get, class: 'btn btn-primary' %>
-</div>
-<div class = "col-4">
-<%= button_to 'Редактировать профиль', edit_user_registration_path, method: :get, class: 'btn btn-primary' %>
+    <div class = "row">
+        <div class = "col-3">
+            <%= button_to 'К публикациям', books_path, method: :get, class: 'btn btn-primary' %>
+        </div>
+        <div class = "col-3">
+            <%= button_to 'Создать публикацию', new_book_path, method: :get, class: 'btn btn-primary' %>
+        </div>
+        <div class = "col-3">
+            <%= button_to 'Редактировать профиль', edit_user_registration_path, method: :get, class: 'btn btn-primary' %>
+        </div>
+        <div class = "col-3">
+            <%= button_to 'Мои публикации', href = 'library/mybooks' , method: :get, class: 'btn btn-primary' %>
+        </div>
+    </div>
 </div>

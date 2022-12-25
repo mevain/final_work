@@ -10,49 +10,59 @@
       </ul>
     </div>
   <% end %>
+<div  class = "edit_create">
+  <div class = "row">
+    <div class = "col">
+      <%= form.label :genre, style: "display: block" %>
+      <%= form.text_field :genre %>
+    </div>
+    <div class = "col">
+      <%= form.label :name, style: "display: block" %>
+      <%= form.text_field :name %>
+    </div>
 
-  <div>
-    <%= form.label :genre, style: "display: block" %>
-    <%= form.text_field :genre %>
+    <div class = "col">
+      <%= form.label :language, style: "display: block" %>
+      <%= form.text_field :language%>
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "col">
+      <%= form.label :author, style: "display: block" %>
+      <%= form.text_field :author%>
+    </div>
+
+    <div class = "col">
+      <%= form.label :author_email, style: "display: block" %>
+      <%= form.text_field :author_email, value: current_user.email%>
+    </div>
+
+
+    <div class = "col">
+      <%= form.label :year, style: "display: block" %>
+      <%= form.number_field :year, value: Time.current.year%>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
+    <div class = "col">
+      <%= form.label :user_id, style: "display: block" %>
+      <%= form.text_field :user_id, value: current_user.id%>
+    </div>
 
-  <div>
-  <%= form.label :language, style: "display: block" %>
-  <%= form.text_field :language%>
-</div>
-
-  <div>
-    <%= form.label :author, style: "display: block" %>
-    <%= form.text_field :author%>
-  </div>
-
-  <div>
-    <%= form.label :author_email, style: "display: block" %>
-    <%= form.text_field :author_email%>
-  </div>
-
-
-  <div>
-    <%= form.label :year, style: "display: block" %>
-    <%= form.number_field :year%>
-  </div>
-
-  <div>
+  <div class = "row">
+  <div class = "col">
   <%= form.label :description, style: "display: block" %>
-  <%= form.text_area :description, cols: 100, rows: 10%>
+  <%= form.text_area :description, cols: 100, rows: 7%>
 </div>
 
+
+    <div class = "col", style = "padding-bottom:10px">
+      <%= form.label :content, style: "display: block" %>
+    <%= form.text_area :content, cols: 100, rows: 20%>
+    </div>
+    </div>
 <div>
-<%= form.label :content, style: "display: block" %>
-<%= form.text_area :content, cols: 100, rows: 100%>
-</div>
-
-  <div>
     <%= form.submit %>
+  </div>
   </div>
 <% end %>

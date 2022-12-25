@@ -1,32 +1,35 @@
 <div id="<%= dom_id book %>">
-  <p>
-    <strong>Name:</strong>
-    <%= book.name %>
-  </p>
+<div align = "center">
+<table class = "booklist">
+<thead style >
+  <tr>
+  <th style = "width:20px"> <strong>Author:</strong> </th>
 
-  <p>
-    <strong>Author:</strong>
-    <%= book.author %>
-  </p>
+  <th><strong>Genre:</strong></th>
+  <th><strong>Year:</strong><th>
+  </tr>
+</thead>
 
-  <p>
-  <strong>Genre:</strong>
-  <%= book.genre %>
-</p>
+<tbody>
+<td> <%= book.author %> </td>
+        
+  <td><%= book.genre %></td>
 
-  <p>
-    <strong>Year:</strong>
-    <%= book.year %>
-  </p>
+  <td><%= book.year %><td>
 
-  <p>
-  <strong>Description:</strong>
-  <%= book.description %>
-</p>
-<p>
-<strong>Content:</strong> </br> 
-<div style="margin:50px;">
-<%= book.content%>
+</tbody>
+</table>
 </div>
+<p align = "center"><strong>Description:</strong></p>
+<p>
+  <div style="padding-left:250px; padding-right:250px;">
+    <%= book.description%>
+  </div>
 </p>
+  <p>
+    <h3><%= book.name %></h3>
+      <div style="padding-left:250px; padding-right:250px;">
+    <%= book.content%>
+  </div>
+  </p>
 </div>

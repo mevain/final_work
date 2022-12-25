@@ -11,8 +11,10 @@
   </head>
 
   <body>
+  <%if notice%>
+  <p class="notice", align = "center", style = "color: green"><%= notice %></p>
+  <% end %>
   <%if notice or alert%>
-  <p class="notice", align = "center"><%= notice %></p>
   <p class="alert", align = "center"><%= alert %></p>
   <%end %>
   <% if current_user %>

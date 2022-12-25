@@ -1,10 +1,19 @@
-<p style="color: green"><%= notice %></p>
+
 
 <%= render @book %>
 
-<div>
-  <%= link_to "Back to books", books_path %>
-  <%if @book.author_email == current_user.email %>
-  <%= button_to "Destroy this book", @book, method: :delete %>
-  <% end %>
+<div class = "container" , align = "center">
+  <div class = "row">
+  <div class = "col">
+      <%= link_to "Back to books", books_path, class:"btn btn-outline-primary"%>
+  </div>
+  <div class = "col">
+  <%= link_to "Edit this book", edit_book_path, class:"btn btn-outline-primary"%>
+  </div>
+    <%if @book.author == current_user.name %>
+    <div class = "col">
+    <%= button_to "Destroy this book", @book, method: :delete, class: 'btn btn-primary' %>
+    </div>
+    <% end %>
+  </div>
 </div>

@@ -1,0 +1,23 @@
+<h3>Мои публикации</h3>
+
+<table class = "booklist">
+<thead>
+    <tr>
+      <th>Название</th>
+      <th>Год</th>
+      <th>Жанр</th>
+      <th>Язык</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @mybooks.each do |book| %>
+      <tr>
+        <td><%= book.name %></td>
+        <td><%= book.year %></td>
+        <td><%= book.genre %></td>
+        <td><%= book.language %></td>
+        <td><%= link_to 'Show', book %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
