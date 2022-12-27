@@ -13,56 +13,49 @@
 <div  class = "edit_create">
   <div class = "row">
     <div class = "col">
-      <%= form.label :genre, style: "display: block" %>
+      <%= form.label :genre, t('book_genre'), style: "display: block" %>
       <%= form.text_field :genre %>
     </div>
     <div class = "col">
-      <%= form.label :name, style: "display: block" %>
+      <%= form.label :name, t('book_name'), style: "display: block" %>
       <%= form.text_field :name %>
     </div>
 
     <div class = "col">
-      <%= form.label :language, style: "display: block" %>
+      <%= form.label :language, t('book_language'), style: "display: block" %>
       <%= form.text_field :language%>
     </div>
   </div>
   <div class = "row">
     <div class = "col">
-      <%= form.label :author, style: "display: block" %>
-      <%= form.text_field :author%>
+      <%= form.label :author, t('book_author'), style: "display: block" %>
+      <%= form.text_field :author, value: current_user.name%>
     </div>
 
     <div class = "col">
-      <%= form.label :author_email, style: "display: block" %>
+      <%= form.label :author_email, t('book_author_email'), style: "display: block" %>
       <%= form.text_field :author_email, value: current_user.email%>
     </div>
 
-
     <div class = "col">
-      <%= form.label :year, style: "display: block" %>
-      <%= form.number_field :year, value: Time.current.year%>
-    </div>
-  </div>
-
-    <div class = "col">
-      <%= form.label :user_id, style: "display: block" %>
+      <%= form.label :user_id, t('book_author_id'), style: "display: block" %>
       <%= form.text_field :user_id, value: current_user.id%>
     </div>
 
-  <div class = "row">
+  <div class = "row", style = "padding-top:10px">
   <div class = "col">
-  <%= form.label :description, style: "display: block" %>
+  <%= form.label :description, t('book_description'), style: "display: block" %>
   <%= form.text_area :description, cols: 100, rows: 7%>
 </div>
 
 
-    <div class = "col", style = "padding-bottom:10px">
-      <%= form.label :content, style: "display: block" %>
+    <div class = "col", style = "padding-bottom:10px; padding-top:10px">
+      <%= form.label :content, t('book_content'), style: "display: block" %>
     <%= form.text_area :content, cols: 100, rows: 20%>
     </div>
     </div>
 <div>
-    <%= form.submit %>
+    <%= form.submit "#{t('submit')}"%>
   </div>
   </div>
 <% end %>

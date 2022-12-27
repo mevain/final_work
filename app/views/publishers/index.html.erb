@@ -1,0 +1,32 @@
+<script>
+    function change_background(color) {
+    var subs = document.getElementById("subs");
+    document.styleSheets[0].insertRule('#subs:hover {background-color: ' + color + ';}', 0);
+    }
+    window.addEventListener("load", function() { change_background('white') });   
+</script>
+
+<h1>Publishers</h1>
+
+<div id="publishers" class = "publics">
+  
+    <% @publishers.each do |publisher| %>
+      <div class = "container" id = "subs", onclick="location.href = 'publishers/<%= publisher.id %>';", id = "subs">
+      <div class = "row">
+        <div class = "col">
+          <%= publisher.pub_house %>
+        </div>
+        <% @subers = Subscription.where(user_id: current_user.id, publisher_id: publisher.id) %>
+        <% @subs = @subers.detect {|suber| suber.publisher_id == publisher.id} %>
+        <div class = "col">
+        <% if not @subs %>
+          <%= button_to "Подписаться",:class => "btn btn-outline-primary", :action => "newsub", :params => {publisher_id: publisher.id} %>
+        <% else %> <strong> Вы подписаны </strong>
+        <% end %>
+        </div>
+      </div>
+      </div>
+    <% end %>
+  
+</div>
+

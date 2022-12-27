@@ -1,28 +1,27 @@
 <div id="<%= dom_id book %>">
 <div align = "center">
 <table class = "booklist">
-<thead style >
+<thead>
   <tr>
-  <th style = "width:20px"> <strong>Author:</strong> </th>
-
-  <th><strong>Genre:</strong></th>
-  <th><strong>Year:</strong><th>
+  <th> <strong><%="#{t('book_author')}"%></strong> </th>
+  <th><strong><%="#{t('book_language')}"%></strong></th>
+  <th><strong><%="#{t('book_genre')}"%></strong></th>
   </tr>
 </thead>
 
 <tbody>
 <td> <%= book.author %> </td>
         
-  <td><%= book.genre %></td>
+  <td><%= book.language %></td>
 
-  <td><%= book.year %><td>
+  <td><%= book.genre %><td>
 
 </tbody>
 </table>
 </div>
-<p align = "center"><strong>Description:</strong></p>
+<p align = "center"><strong><%="#{t('book_description')}"%></strong></p>
 <p>
-  <div style="padding-left:250px; padding-right:250px;">
+  <div style="padding-left:250px; padding-right:250px; text-align: center;">
     <%= book.description%>
   </div>
 </p>

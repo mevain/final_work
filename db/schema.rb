@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_24_181520) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_26_022656) do
   create_table "books", force: :cascade do |t|
     t.string "genre"
     t.string "name"
@@ -24,6 +24,30 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_24_181520) do
     t.string "author_email"
     t.integer "user_id", null: false
     t.index ["user_id"], name: "index_books_on_user_id"
+  end
+
+  create_table "memberships", force: :cascade do |t|
+    t.integer "publisher_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["publisher_id"], name: "index_memberships_on_publisher_id"
+    t.index ["user_id"], name: "index_memberships_on_user_id"
+  end
+
+  create_table "publishers", force: :cascade do |t|
+    t.string "pub_house"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "publisher_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["publisher_id"], name: "index_subscriptions_on_publisher_id"
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,4 +64,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_24_181520) do
   end
 
   add_foreign_key "books", "users"
+  add_foreign_key "memberships", "publishers"
+  add_foreign_key "memberships", "users"
+  add_foreign_key "subscriptions", "publishers"
+  add_foreign_key "subscriptions", "users"
 end

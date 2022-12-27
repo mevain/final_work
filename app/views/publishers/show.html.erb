@@ -1,0 +1,28 @@
+<h3> <%= @publisher.pub_house %> </h3>
+<%if @pu_books.size != 0%>
+  <% @pu_books.each do |pu_book|%>
+      <%pu_book.each do |pb|%>
+        <div class = "publics">
+          <div class = "container">
+            <div class = "row">
+              <div class = "col"> <%= pb.name %> </div>
+              <% book = pb %>
+              <div class = "col"><%= link_to 'Show', book %></div>
+            </div>
+          </div>
+        <div>
+      <%end%>
+  <%end%>
+
+<% else %>
+  <div class = "publics">
+    <div class = "container">
+      <div class = "row">
+          <div class = "col"> У издателя еще нет книг </div>
+      </div>
+    </div>
+  <div>
+  <% end %>
+<div align = "center">
+<%= link_to "#{t('back_to_pubs')}", publishers_path, class:"btn btn-outline-primary"%>
+</div>

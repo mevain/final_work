@@ -1,18 +1,17 @@
 
-
 <%= render @book %>
 
 <div class = "container" , align = "center">
   <div class = "row">
   <div class = "col">
-      <%= link_to "Back to books", books_path, class:"btn btn-outline-primary"%>
-  </div>
-  <div class = "col">
-  <%= link_to "Edit this book", edit_book_path, class:"btn btn-outline-primary"%>
+      <%= link_to "#{t('back_to_book')}", books_path, class:"btn btn-outline-primary"%>
   </div>
     <%if @book.author == current_user.name %>
     <div class = "col">
-    <%= button_to "Destroy this book", @book, method: :delete, class: 'btn btn-primary' %>
+    <%= link_to "#{t('edit_book')}", edit_book_path, class:"btn btn-outline-primary"%>
+    </div>
+    <div class = "col">
+    <%= button_to "#{t('back_to_book')}", @book, method: :delete, class: 'btn btn-primary' %>
     </div>
     <% end %>
   </div>

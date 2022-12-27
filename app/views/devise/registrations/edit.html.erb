@@ -1,5 +1,5 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
+<h2><%="#{t('edit_user')}"%></h2>
+<div align = "center">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -9,7 +9,7 @@
   </div>
 
   <div>
-     <%= f.label :name %><br />
+     <%= f.label :name, t('user_name') %><br />
      <%= f.text_field :name, autofocus: true %>
 </div>
 
@@ -18,31 +18,32 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.label :password , t('pass_word') %> <i>(оставьте поле пустым, если вы не хотите его изменять)</i><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <em>(<%= @minimum_password_length %><%=t('characters_minimum')%>)</em>
     <% end %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation, t('pass_conf') %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :current_password, t('curr_pass')  %><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
+  <div class="actions", style = "margin: 5px">
+    <%= f.submit "#{t('update')}" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3><%="#{t('cancel_account')}"%></h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p><%= button_to "#{t('cancel_account')}", registration_path(resource_name), data: { confirm: "Вы уверены?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to "#{t('back')}", :back %>
+</div>

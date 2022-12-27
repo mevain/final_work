@@ -49,6 +49,8 @@ gem 'bootstrap', '~> 5.2'
   gem 'ransack'
   gem 'jquery-rails'
   gem 'rails_bootstrap_navbar'
+  gem 'rails-controller-testing'
+  gem 'rspec-rails', '~> 6.0.0'
 # Use Sass to process CSS
 # gem "sassc-rails"
 

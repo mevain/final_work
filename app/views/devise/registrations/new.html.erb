@@ -1,4 +1,4 @@
-<h2 class = "login">Sign up</h2>
+<h2 class = "login"><%="#{t('sign_up1')}"%></h2>
 <div class = "login">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -9,25 +9,25 @@
   </div>
 
   <div>
-     <%= f.label :name %><br />
+     <%= f.label :name, t('user_name') %><br />
      <%= f.text_field :name, autofocus: true %>
 </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :password, t('pass_word') %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %><%=t('characters_minimum')%>)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation, t('pass_conf') %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "#{t('sign_up')}" %>
   </div>
 <% end %>
 <%= render "devise/shared/links" %>

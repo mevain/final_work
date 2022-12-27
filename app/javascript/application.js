@@ -5,3 +5,9 @@ import "controllers"
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+ 
+
+function changeColor(clas) {
+    document.getElementsByClassName(clas).style.backgroundColor = "#ff0000";
+    return false;
+}   

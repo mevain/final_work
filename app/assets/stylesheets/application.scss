@@ -11,6 +11,10 @@ body
 
 .login {
     text-align: center;
+    div 
+    {
+        margin: 20px;
+    }
 }
 .sitename
 {
@@ -30,11 +34,17 @@ h1, h2, h3
 
 .booklist 
 {
+    position:relative;
+    align-content: center;
     padding-top: 5px;
     margin: auto;
     align-items:center;
+
     td
     {
+
+        margin: 10px;
+        
         text-align: center;
         padding-left: 30px;
         padding-right: 30px;
@@ -44,6 +54,7 @@ h1, h2, h3
 
     th 
     {
+        margin: auto;
         text-align: center;
         padding-left: 30px;
         padding-right: 30px;
@@ -68,6 +79,36 @@ h1, h2, h3
 .edit_create
 {
     text-align: center;
+}
+
+.publics
+{
+    width: 800px;
+    position: relative;
+    display: grid;
+    margin: auto;
+    .container
+    {
+        align-self: center;
+        justify-self: center;
+        border: 2px solid rgb(24, 80, 185);
+        background-color: #e0e9fb;
+        border-radius: 12px;
+        margin: 10px;
+        padding: 5px;
+        .row
+        {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin: 5px;
+        }
+        .col
+            {
+                width: 50px;
+                align-self: center;
+                text-align:center;
+            }
+    }
 }
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files

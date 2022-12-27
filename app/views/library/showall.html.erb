@@ -1,6 +1,14 @@
+<script>
+    function change_background(color) {
+    var subs = document.getElementById("subs");
+    document.styleSheets[0].insertRule('#subs:hover {background-color: ' + color + ';}', 0);
+    }
+    window.addEventListener("load", function() { change_background('white') });   
+</script>
+
 <h1 align = "center" ><%=current_user.name%></h1>
 <p align = "center" > <%=current_user.email%> <p>
-<div class = "container", align = "center">
+<div class = "container", align = "center", id = "menu">
     <div class = "row">
         <div class = "col-3">
             <%= button_to 'К публикациям', books_path, method: :get, class: 'btn btn-primary' %>
@@ -15,4 +23,26 @@
             <%= button_to 'Мои публикации', href = 'library/mybooks' , method: :get, class: 'btn btn-primary' %>
         </div>
     </div>
+</div>
+<h3> Ваши новинки </h3>
+<div class = "publics">
+    <% @mybooks.each do |book| %>
+       <% book.each do |b| %>
+        <% if b.updated_at > 3.days.ago %>
+        <div class = "container", onclick="location.href = 'books/<%= b.id %>';", id = "subs">
+            <div class = "row">
+                <div class = "col">
+                 <% @mem = Membership.where(user_id: b.user_id).first%>
+                 <% @pub = Publisher.find(@mem.publisher_id) %>
+                 <strong>Издательство: </strong><%= @pub.pub_house%>
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col">Название: <%= b.name %></div>
+                <div class = "col">Жанр: <%= b.genre %></div>
+            </div>
+        </div>
+        <% end %>
+        <% end %>
+    <% end %>
 </div>
